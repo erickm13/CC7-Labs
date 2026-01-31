@@ -1,0 +1,228 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+                              stdio.o (__aeabi_dmul)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+                              stdio.o (__aeabi_dsub)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+                              stdio.o (__aeabi_dcmplt)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+                              stdio.o (__aeabi_d2iz)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+                              stdio.o (__aeabi_d2f)
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD root.o
+LOAD main.o
+LOAD stdio.o
+LOAD os.o
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a
+                0x00010000                        . = 0x10000
+
+.text           0x00010000     0x1764
+ *(.text*)
+ .text          0x00010000       0x10 root.o
+                0x00010000                _start
+ .text          0x00010010       0xa8 main.o
+                0x00010010                main
+ .text          0x000100b8      0xbc8 stdio.o
+                0x0001090c                PRINT
+                0x00010a98                READ
+ .text          0x00010c80      0x1f0 os.o
+                0x00010c80                uart_putc
+                0x00010cd0                uart_getc
+                0x00010d14                uart_puts
+                0x00010d64                uart_getline
+ .text          0x00010e70      0x290 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+                0x00010e70                __aeabi_dmul
+                0x00010e70                __muldf3
+ .text          0x00011100      0x424 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+                0x00011100                __aeabi_drsub
+                0x00011108                __aeabi_dsub
+                0x00011108                __subdf3
+                0x0001110c                __adddf3
+                0x0001110c                __aeabi_dadd
+                0x0001141c                __aeabi_ui2d
+                0x0001141c                __floatunsidf
+                0x00011440                __floatsidf
+                0x00011440                __aeabi_i2d
+                0x00011468                __extendsfdf2
+                0x00011468                __aeabi_f2d
+                0x000114b0                __aeabi_ul2d
+                0x000114b0                __floatundidf
+                0x000114c4                __floatdidf
+                0x000114c4                __aeabi_l2d
+ .text          0x00011524      0x144 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+                0x00011524                __gtdf2
+                0x00011524                __gedf2
+                0x0001152c                __ltdf2
+                0x0001152c                __ledf2
+                0x00011534                __cmpdf2
+                0x00011534                __eqdf2
+                0x00011534                __nedf2
+                0x000115bc                __aeabi_cdrcmple
+                0x000115d8                __aeabi_cdcmple
+                0x000115d8                __aeabi_cdcmpeq
+                0x000115f0                __aeabi_dcmpeq
+                0x00011608                __aeabi_dcmplt
+                0x00011620                __aeabi_dcmple
+                0x00011638                __aeabi_dcmpge
+                0x00011650                __aeabi_dcmpgt
+ .text          0x00011668       0x5c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+                0x00011668                __fixdfsi
+                0x00011668                __aeabi_d2iz
+ .text          0x000116c4       0xa0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+                0x000116c4                __aeabi_d2f
+                0x000116c4                __truncdfsf2
+
+.rodata         0x00011764       0x78
+ .rodata        0x00011764       0x69 main.o
+ *fill*         0x000117cd        0x3 
+ .rodata        0x000117d0        0x7 stdio.o
+ *fill*         0x000117d7        0x1 
+ .rodata        0x000117d8        0x4 os.o
+
+.glue_7         0x000117dc        0x0
+ .glue_7        0x000117dc        0x0 linker stubs
+
+.glue_7t        0x000117dc        0x0
+ .glue_7t       0x000117dc        0x0 linker stubs
+
+.vfp11_veneer   0x000117dc        0x0
+ .vfp11_veneer  0x000117dc        0x0 linker stubs
+
+.v4_bx          0x000117dc        0x0
+ .v4_bx         0x000117dc        0x0 linker stubs
+
+.iplt           0x000117dc        0x0
+ .iplt          0x000117dc        0x0 root.o
+
+.rel.dyn        0x000117dc        0x0
+ .rel.iplt      0x000117dc        0x0 root.o
+
+.data           0x000117dc        0x0 load address 0x00011764
+ *(.data*)
+ .data          0x000117dc        0x0 root.o
+ .data          0x000117dc        0x0 main.o
+ .data          0x000117dc        0x0 stdio.o
+ .data          0x000117dc        0x0 os.o
+ .data          0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .data          0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .data          0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .data          0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .data          0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.igot.plt       0x000117dc        0x0 load address 0x00011764
+ .igot.plt      0x000117dc        0x0 root.o
+
+.bss            0x000117dc        0x0 load address 0x00011764
+                0x000117dc                        __bss_start = .
+ *(.bss*)
+ .bss           0x000117dc        0x0 root.o
+ .bss           0x000117dc        0x0 main.o
+ .bss           0x000117dc        0x0 stdio.o
+ .bss           0x000117dc        0x0 os.o
+ .bss           0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .bss           0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .bss           0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .bss           0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .bss           0x000117dc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+                0x000117dc                        __bss_end = .
+OUTPUT(calculadora.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x26
+ .ARM.attributes
+                0x00000000       0x12 root.o
+ .ARM.attributes
+                0x00000012       0x2a main.o
+ .ARM.attributes
+                0x0000003c       0x2a stdio.o
+ .ARM.attributes
+                0x00000066       0x2a os.o
+ .ARM.attributes
+                0x00000090       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .ARM.attributes
+                0x000000ac       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x000000c8       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x000000e4       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x00000100       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.comment        0x00000000       0x26
+ .comment       0x00000000       0x26 main.o
+                                 0x27 (size before relaxing)
+ .comment       0x00000026       0x27 stdio.o
+ .comment       0x00000026       0x27 os.o
+
+.debug_line     0x00000000      0x3a7
+ .debug_line    0x00000000       0xe4 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_line    0x000000e4      0x158 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x0000023c       0x9a /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x000002d6       0x60 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x00000336       0x71 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.debug_line_str
+                0x00000000       0x7f
+ .debug_line_str
+                0x00000000       0x7f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_line_str
+                0x0000007f       0x7f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_line_str
+                0x0000007f       0x7f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_line_str
+                0x0000007f       0x7f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_line_str
+                0x0000007f       0x7f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.debug_info     0x00000000      0x26f
+ .debug_info    0x00000000       0x3f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_info    0x0000003f       0xd3 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x00000112       0xe2 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x000001f4       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x00000230       0x3f /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.debug_abbrev   0x00000000       0xc6
+ .debug_abbrev  0x00000000       0x26 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_abbrev  0x00000026       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x0000004e       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x00000076       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x0000009e       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.debug_aranges  0x00000000       0xa0
+ .debug_aranges
+                0x00000000       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_aranges
+                0x00000020       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_aranges
+                0x00000040       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_aranges
+                0x00000060       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_aranges
+                0x00000080       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.debug_str      0x00000000      0x232
+ .debug_str     0x00000000      0x232 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+                                 0xa1 (size before relaxing)
+ .debug_str     0x00000232      0x137 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_str     0x00000232      0x140 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_str     0x00000232       0xa2 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_str     0x00000232       0xa4 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+
+.debug_frame    0x00000000      0x1e8
+ .debug_frame   0x00000000       0x30 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_frame   0x00000030       0xac /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x000000dc       0xc4 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x000001a0       0x24 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x000001c4       0x24 /usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)

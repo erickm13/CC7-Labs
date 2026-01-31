@@ -1,0 +1,12 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_muldf3.o)
+                              stdio.o (__aeabi_dmul)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_addsubdf3.o)
+                              stdio.o (__aeabi_dsub)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_cmpdf2.o)
+                              stdio.o (__aeabi_dcmplt)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_fixdfsi.o)
+                              stdio.o (__aeabi_d2iz)
+/usr/lib/gcc/arm-none-eabi/13.2.1/libgcc.a(_arm_truncdfsf2.o)
+                              stdio.o (__aeabi_d2f)
