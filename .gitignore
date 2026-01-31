@@ -1,0 +1,10 @@
+# Windows Mark-of-the-Web (Zone.Identifier)
+*:Zone.Identifier
+*Zone.Identifier
+
+# macOS junk
+.DS_Store
+**/.DS_Store
+__MACOSX/
+._*
+
