@@ -57,6 +57,7 @@ void os_read(char *buffer, int max_length) {
     while (i < max_length - 1) { // Leave space for null terminator
         c = uart_getc();
         if (c == '\n' || c == '\r') {
+
             uart_putc('\n'); // Echo newline
             break;
         }
@@ -72,6 +73,7 @@ void uart_putnum(unsigned int num) {
     int i = 0;
     if (num == 0) {
         uart_putc('0');
+
         uart_putc('\n');
         return;
     }
@@ -102,7 +104,31 @@ void uart_putnum(unsigned int num) {
 // 9. Start timer in auto-reload mode (TCLR = 0x3)
 void timer_init(void) {
     // TODO: Implement timer initialization
-    os_write("Timer initialization not yet implemented\n");
+    // 1) Enable Timer2 clock
+    PUT32(CM_PER_TIMER2_CLKCTRL, 0x2);
+
+    // 2) Unmask IRQ 68 (IRQ68 is bit 4 in MIR_CLEAR2 because 68-64=4)
+    PUT32(INTC_MIR_CLEAR2, (1u << 4));
+
+    // 3) Priority/type for IRQ 68 (0 = IRQ, priority 0)
+    PUT32(INTC_ILR68, 0x0);
+
+    // 4) Stop timer
+    PUT32(TCLR, 0x0);
+
+    // 5) Clear pending interrupts
+    PUT32(TISR, 0x7);
+
+    // 6-7) Load value for ~2 seconds @ 24MHz (given by lab)
+    PUT32(TLDR, 0xFE91CA00);
+    PUT32(TCRR, 0xFE91CA00);
+
+    // 8) Enable overflow interrupt
+    PUT32(TIER, 0x2);
+
+    // 9) Start + auto-reload (ST=1, AR=1)
+    PUT32(TCLR, 0x3);
+    //os_write("Timer initialization not yet implemented\n");
 }
 
 // TODO: Implement timer interrupt handler
@@ -112,7 +138,15 @@ void timer_init(void) {
 // 3. Print "Tick\n" via UART
 void timer_irq_handler(void) {
     // TODO: Implement timer interrupt handler
-    os_write("Timer interrupt handler not yet implemented\n");
+    // 1) Clear overflow interrupt flag
+    PUT32(TISR, 0x2);
+
+    // 2) Acknowledge to interrupt controller
+    PUT32(INTC_CONTROL, 0x1);
+
+    // 3) Print Tick
+    os_write("Tick\n\r");
+    //os_write("Timer interrupt handler not yet implemented\n");
 }
 
 // ============================================================================
@@ -132,14 +166,21 @@ int main(void) {
     // TODO: Initialize the timer using timer_init()
     // TODO: Enable interrupts using enable_irq()
     // TODO: Print a message indicating interrupts are enabled
-    
+    os_write("Starting...\n");
+
+    timer_init();
+    os_write("Timer initialized\n");
+
+    enable_irq();
+    os_write("Enabling interrupts...\n");
     // Main loop: continuously print random numbers
     while (1) {
         unsigned int random_num = rand() % 1000;
         uart_putnum(random_num);
+        os_write("\r");
         
         // Small delay to prevent overwhelming UART
-        for (volatile int i = 0; i < 1000000; i++);
+        for (volatile int i = 0; i < 10000000; i++);
     }
     
     return 0;
