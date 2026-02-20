@@ -9,6 +9,7 @@ int main(void)
   printf("Laboratorio 4: Creacion y Manipulacion de Procesos\n");
   printf("\n");
   printf(">>>> 1. Creating a New Process <<<<\n");
+  fflush(stdout);
   pid_t pid = fork();
     
   if(pid < 0){
@@ -19,6 +20,7 @@ int main(void)
   if(pid != 0){
     printf("Parent Process: PID = %d\n", getpid());
     sleep(1);
+    wait(NULL);
   }else {
     printf("Child Process: PID = %d Parent PID = %d\n", getpid(), getppid());
     sleep(1);
@@ -26,7 +28,7 @@ int main(void)
   }
 
   printf(">>>> 2. Synchronized Parent (waitpid) <<<<\n");
-
+  fflush(stdout);
   pid_t pid2 = fork();
   
   if(pid2 < 0){
@@ -43,7 +45,8 @@ int main(void)
   }
 
   printf(">>>> 3. Inter-Process Communication Using Pipes <<<<\n");
-
+  fflush(stdout);
+  
   int pipefd[2];
   char buffer[100];
   
@@ -75,8 +78,10 @@ int main(void)
   }
 
   printf(">>>> 4. Creating Multiple Child Processes <<<<\n");
+  fflush(stdout);
 
   printf("Parent Process: PID = %d\n", getpid());
+  fflush(stdout);
   
   for(int i = 1; i <= 3; i++){
     pid_t child_pid = fork();
@@ -97,6 +102,7 @@ int main(void)
   }
 
   printf(">>>> 5. Shared Memory <<<<\n");
+  fflush(stdout);
 
   int shm_id;
   char *shm_ptr;
@@ -107,7 +113,7 @@ int main(void)
     perror("shmget");
     return 1;
   }
-  
+  fflush(stdout);
   pid_t pid5 = fork();
   
   if(pid5 < 0){
