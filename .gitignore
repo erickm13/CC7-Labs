@@ -2,6 +2,8 @@
 *:Zone.Identifier
 *Zone.Identifier
 
+#Nvim files
+.asm-lsp.toml
 # macOS junk
 .DS_Store
 **/.DS_Store
